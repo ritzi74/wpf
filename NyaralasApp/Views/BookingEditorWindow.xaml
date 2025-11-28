@@ -1,0 +1,52 @@
+﻿<Window x:Class="NyaralasApp.Views.BookingEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddReservationView"
+        Height="260" Width="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Cím felül középen -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="Új Foglalás"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,15"
+                   FontSize="20"
+                   FontWeight="Bold"/>
+
+        <!-- Név -->
+        <TextBlock Grid.Row="1" Text="Név:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,5"
+                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- Összeg -->
+        <TextBlock Grid.Row="2" Text="Összeg (Ft):" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,5"
+                 Text="{Binding Amount}"/>
+
+        <!-- Foglalások száma -->
+        <TextBlock Grid.Row="3" Text="Foglalások száma:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,15"
+                 Text="{Binding BookingCount}"/>
+
+        <!-- Hozzáadás gomb középen -->
+        <Button Grid.Row="4" Grid.ColumnSpan="2"
+                Content="Hozzáadás"
+                Width="120" Height="30"
+                HorizontalAlignment="Center"
+                IsDefault="True"
+                Click="Save_Click"/>
+    </Grid>
+</Window>
